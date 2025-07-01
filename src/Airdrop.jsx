@@ -8,10 +8,12 @@ export default function Airdrop() {
 
     //func
     async function sendAirdropToUser() {
-       await connection.requestAirdrop(wallet.publicKey,1000000000)
+        const amount = document.getElementById("publicKey").value
+       await connection.requestAirdrop(wallet.publicKey,amount*1000000000)
+       alert("airdropped sol")
     }
     return <div>
-        <input type="text" placeholder="Enter your wallet address" />
+        <input id= "publicKey" type="text" placeholder="Enter your wallet address" />
         <button onClick={sendAirdropToUser}>Airdrop</button>
        
     </div>
